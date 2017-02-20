@@ -1,6 +1,8 @@
 """""""""""""""""""""""""""""""""""""
 " Written by Daniel Kats
 " May 27, 2014
+" Modiied by Ross Kitsis
+" Feb 20th 2016
 """"""""""""""""""""""""""""""""""""""
 
 """""""""""" Clear Previous Junk """"""""""""
@@ -41,6 +43,10 @@ Plug 'https://github.com/tfnico/vim-gradle.git'
 Plug 'othree/html5.vim'
 " CSS3
 Plug 'hail2u/vim-css3-syntax'
+
+" Python Lint
+Plug 'vim-syntastic/syntastic'
+
 
 " actual plugins
 Plug 'rking/ag.vim'
@@ -153,7 +159,7 @@ set showmatch
 
 " show whitespace
 "set list
-"set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
+"set list listchars=tab:-,trail:,extends:,precedes:,nbsp:
 "set nolist
 
 set hlsearch
@@ -190,6 +196,16 @@ colorscheme molokai
 
 " enable status line always
 set laststatus=2
+
+" Set Python Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 """""""""""""""""" Keyboard shortcuts
@@ -351,3 +367,4 @@ let g:ctrlp_custom_ignore = {
 """"""""""""" vim-json options """"""""""""""""""
 let g:vim_json_syntax_conceal = 0
 """"""""""""" vim-json options """"""""""""""""""
+
